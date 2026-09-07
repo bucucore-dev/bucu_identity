@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUCU Identity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="identity-app" class="app-root hidden">
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- STEP 1 — Identity Registration Form                                 -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <div id="step-identity" class="step-panel active">
+        <div class="step-container">
+
+            <!-- Left: Brand & Art -->
+            <aside class="step-art">
+                <div class="art-inner">
+                    <div class="brand-logo">
+                        <span class="brand-bucu">BUCU</span>
+                        <span class="brand-identity">CITY</span>
+                    </div>
+                    <div class="art-orb"></div>
+                    <div class="art-rings">
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                    </div>
+                    <div class="art-tagline">
+                        <p>BUCU City</p>
+                        <p>Civil Registry Office</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right: Form -->
+            <div class="step-form-panel">
+                <div class="form-header">
+                    <div class="step-badge">STEP 01</div>
+                    <h1 id="s1-title">Identity Registration</h1>
+                    <p id="s1-subtitle">Fill in your official civil registry details</p>
+                </div>
+
+                <form id="identity-form" class="identity-form" autocomplete="off">
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label id="lbl-firstname">First Name</label>
+                            <input type="text" id="inp-firstname" placeholder="Arthur" maxlength="25" spellcheck="false">
+                        </div>
+                        <div class="form-group">
+                            <label id="lbl-lastname">Last Name</label>
+                            <input type="text" id="inp-lastname" placeholder="Morgan" maxlength="25" spellcheck="false">
+                        </div>
+                    </div>
+
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label id="lbl-dob">Date of Birth</label>
+                            <input type="date" id="inp-dob" value="1990-01-01" min="1930-01-01" max="2006-12-31">
+                        </div>
+                        <div class="form-group">
+                            <label id="lbl-nationality">Nationality</label>
+                            <input type="text" id="inp-nationality" value="San Andreas" maxlength="30" spellcheck="false">
+                        </div>
+                    </div>
+
+                    <!-- Gender Selector -->
+                    <div class="form-group">
+                        <label id="lbl-gender">Gender</label>
+                        <div class="gender-selector">
+                            <label class="gender-option selected" id="gender-male-label">
+                                <input type="radio" name="gender" value="male" checked>
+                                <div class="gender-card">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="4"/><path d="M12 9v13"/><path d="M9 19h6"/></svg>
+                                    <span id="lbl-gender-male">Male</span>
+                                </div>
+                            </label>
+                            <label class="gender-option" id="gender-female-label">
+                                <input type="radio" name="gender" value="female">
+                                <div class="gender-card">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M12 13v8"/><path d="M9 18h6"/></svg>
+                                    <span id="lbl-gender-female">Female</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-error hidden" id="s1-error"></div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-ghost" id="btn-s1-cancel">Cancel</button>
+                        <button type="submit" class="btn-primary" id="btn-s1-next">
+                            <span>Next: Create Character</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- STEP 2 — Character Creator                                          -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <div id="step-creator" class="step-panel hidden">
+        <div class="creator-layout">
+
+            <!-- LEFT SIDEBAR: Tabs + Controls -->
+            <aside class="creator-sidebar">
+                <div class="sidebar-header">
+                    <div class="brand-logo compact">
+                        <span class="brand-bucu">BUCU</span>
+                        <span class="brand-identity">CITY</span>
+                    </div>
+                    <div class="step-badge">STEP 02</div>
+                </div>
+
+                <!-- Tab Navigation -->
+                <nav class="tab-nav">
+                    <button class="tab-btn active" data-tab="face">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 005 0"/></svg>
+                        <span id="tab-lbl-face">Face</span>
+                    </button>
+                    <button class="tab-btn" data-tab="hair">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c-2.5 0-5 1-6.5 3C4 7.5 4 10 4 12s.5 4 2 5.5c1.2 1.2 3 2 6 2s4.8-.8 6-2c1.5-1.5 2-3.5 2-5.5s0-4.5-1.5-7C17 3 14.5 2 12 2z"/></svg>
+                        <span id="tab-lbl-hair">Hair</span>
+                    </button>
+                    <button class="tab-btn" data-tab="body">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 100 6 3 3 0 000-6zM9 10h6l1 12H8L9 10z"/></svg>
+                        <span id="tab-lbl-body">Body</span>
+                    </button>
+                    <button class="tab-btn" data-tab="clothing">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l4-3 3 3 2-2 2 2 3-3 4 3v14H3V7z"/></svg>
+                        <span id="tab-lbl-clothing">Clothing</span>
+                    </button>
+                    <button class="tab-btn" data-tab="accessories">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"/></svg>
+                        <span id="tab-lbl-accessories">Accessories</span>
+                    </button>
+                </nav>
+
+                <!-- Camera View Controls -->
+                <div class="cam-controls">
+                    <p class="cam-label">Camera View</p>
+                    <div class="cam-buttons">
+                        <button class="cam-btn active" data-view="full">Full</button>
+                        <button class="cam-btn" data-view="head">Head</button>
+                        <button class="cam-btn" data-view="torso">Torso</button>
+                        <button class="cam-btn" data-view="legs">Legs</button>
+                    </div>
+                </div>
+
+                <!-- Rotate Controls -->
+                <div class="rotate-controls">
+                    <button class="rotate-btn" id="btn-rotate-left" title="Rotate Left">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 109-9M3 3v6h6"/></svg>
+                    </button>
+                    <button class="rotate-btn" id="btn-rotate-reset" title="Face Front">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                    </button>
+                    <button class="rotate-btn" id="btn-rotate-right" title="Rotate Right">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-9-9M21 3v6h-6"/></svg>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- CENTER: Character Preview (3D in-game, no image) -->
+            <div class="creator-preview">
+                <div class="preview-hint">BUCU City · Drag to rotate · Scroll to zoom</div>
+            </div>
+
+            <!-- RIGHT PANEL: Options per Tab -->
+            <div class="creator-options" id="creator-options-panel">
+                <!-- Injected by JS per tab -->
+            </div>
+        </div>
+
+        <!-- Bottom Action Bar -->
+        <div class="creator-actions">
+            <button class="btn-ghost" id="btn-creator-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Back</span>
+            </button>
+            <div class="char-info-strip" id="creator-char-info">
+                <!-- Identity summary shown here -->
+            </div>
+            <button class="btn-primary" id="btn-creator-finish">
+                <span>Finalize & Spawn</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
